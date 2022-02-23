@@ -1,4 +1,4 @@
-package me.matyi;
+package me.calculator1;
 
 public enum EOperand {
     multiply,
