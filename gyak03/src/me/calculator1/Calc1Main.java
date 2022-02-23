@@ -36,7 +36,7 @@ public class Calc1Main {
     public static int readNumber(){
         int number = 0;
         while (!scanner.hasNextInt()){
-            System.out.println("Give me a number");
+            System.out.println("Give me a VALID number");
             scanner.nextLine();
         }
         number = scanner.nextInt();
