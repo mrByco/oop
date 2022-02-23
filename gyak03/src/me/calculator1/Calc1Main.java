@@ -1,8 +1,10 @@
 package me.calculator1;
 
+import me.EOperand;
+
 import java.util.Scanner;
 
-public class Main {
+public class Calc1Main {
 
     public static Scanner scanner = new Scanner(System.in);
 

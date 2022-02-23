@@ -1,4 +1,4 @@
-package me.calculator1;
+package me;
 
 public enum EOperand {
     multiply,
