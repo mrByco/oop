@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9d21995a-6321-47e8-a949-7836445ab107" name="Changes" comment="random number task">
-      <change afterPath="$PROJECT_DIR$/src/me/equasion/Main.java" afterDir="false" />
+    <list default="true" id="9d21995a-6321-47e8-a949-7836445ab107" name="Changes" comment="Equation solver works">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me/calculator1/Calc1Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/calculator1/Calc1Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +127,8 @@
       <updated>1645564162926</updated>
       <workItem from="1645564170115" duration="2168000" />
       <workItem from="1645642434199" duration="2436000" />
-      <workItem from="1645644909850" duration="7158000" />
+      <workItem from="1645644909850" duration="7843000" />
+      <workItem from="1646076012826" duration="956000" />
     </task>
     <task id="LOCAL-00001" summary="Calculator type 1">
       <created>1645644942242</created>
@@ -159,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645649287398</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Equation solver works">
+      <created>1645652526434</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1645652526434</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,6 +187,7 @@
     <MESSAGE value="Package renamed" />
     <MESSAGE value="Calculator type 2" />
     <MESSAGE value="random number task" />
-    <option name="LAST_COMMIT_MESSAGE" value="random number task" />
+    <MESSAGE value="Equation solver works" />
+    <option name="LAST_COMMIT_MESSAGE" value="Equation solver works" />
   </component>
 </project>
