@@ -2,6 +2,7 @@ package me.task1;
 
 import java.util.Scanner;
 
+@SuppressWarnings("DuplicatedCode")
 public class Main {
 
     public static Scanner scanner = new Scanner(System.in);

@@ -3,7 +3,7 @@ package me.task2;
 public class Book {
     private String title;
     private String author;
-    private int releaseData;
+    private int releaseDate;
     private int price;
 
     public String getTitle() {
@@ -22,12 +22,12 @@ public class Book {
         this.author = author;
     }
 
-    public int getReleaseData() {
-        return releaseData;
+    public int getReleaseDate() {
+        return releaseDate;
     }
 
-    public void setReleaseData(int releaseData) {
-        this.releaseData = releaseData;
+    public void setReleaseDate(int releaseDate) {
+        this.releaseDate = releaseDate;
     }
 
     public int getPrice() {
@@ -42,7 +42,7 @@ public class Book {
         price += (price * percent / 100);
     }
 
-    public String getBookDescription(){
-        return "";
+    public String getDescription(){
+        return "Title: " + this.title + " Author: " + title + " Price: " + this.price + " Release day: " + this.releaseDate;
     }
 }
