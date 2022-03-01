@@ -4,6 +4,20 @@ public class Employee {
     private String name;
     private int salary;
 
+    Employee(String name, int salary){
+        this.name = name;
+        this.salary = salary;
+    }
+
+    Employee(String name) {
+        this(name, 250000);
+    }
+
+    @Override
+    public String toString(){
+        return getDescription();
+    }
+
     public void setSalary(int salary){
         this.salary = salary;
     }

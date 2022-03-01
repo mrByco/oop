@@ -44,7 +44,7 @@ public class Main {
     public static void printEmployeeWithMaxSalary(Employee[] employees){
         Employee richest = employees[0];
         for (Employee e : employees){
-            if (richest.getSalary() > e.getSalary()) richest = e;
+            if (richest.getSalary() < e.getSalary()) richest = e;
         }
         System.out.println("The richest employee: " + richest.getName());
 
@@ -54,8 +54,10 @@ public class Main {
 
     public static void printEmployees(Employee[] employees){
         for (Employee e : employees){
-            System.out.println(e.getDescription());
+            System.out.println(e);
+            //System.out.println(e.getDescription());
         }
+
         //Lambda bullshit
         //Arrays.asList(employees).forEach(e -> System.out.println(e.getDescription()));
     }
@@ -77,9 +79,9 @@ public class Main {
 
 
     public static Employee makeEmployee(String name, int salary){
-        Employee employee = new Employee();
-        employee.setName(name);
-        employee.setSalary(salary);
+        Employee employee = new Employee(name, salary);
+        // employee.setName(name);
+        // employee.setSalary(salary);
         return employee;
     }
 
