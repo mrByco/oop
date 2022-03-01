@@ -8,11 +8,11 @@ public class Main {
     }
 
     public static Book makeBook(String title, String author, int price, int releaseYear){
-        Book book = new Book();
-        book.setTitle(title);
+        return new Book(title, author, price, releaseYear);
+        /*book.setTitle(title);
         book.setAuthor(author);
         book.setPrice(price);
-        book.setReleaseDate(releaseYear);
-        return book;
+        book.setReleaseDate(releaseYear);*/
+        //return book;
     }
 }

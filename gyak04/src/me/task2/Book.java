@@ -1,10 +1,23 @@
 package me.task2;
 
+import java.time.LocalDate;
+
 public class Book {
     private String title;
     private String author;
     private int releaseDate;
     private int price;
+
+    Book(String title, String author, int releaseDate, int price){
+        this.title = title;
+        this.author = author;
+        this.releaseDate = releaseDate;
+        this.price = price;
+    }
+
+    Book(String title, String author){
+        this(title, author, LocalDate.now().getYear(), 2500);
+    }
 
     public String getTitle() {
         return title;
@@ -40,6 +53,11 @@ public class Book {
 
     public void changePriceByPercent(int percent){
         price += (price * percent / 100);
+    }
+
+    @Override
+    public String toString(){
+        return getDescription();
     }
 
     public String getDescription(){
