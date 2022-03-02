@@ -11,7 +11,6 @@ public class Calc2Main {
 
     public static void main(String[] args) {
         startCalculationLoop();
-
     }
 
     public static void startCalculationLoop(){

@@ -6,7 +6,7 @@ public class Main {
     public static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args){
-        int[] eq = readEquation();
+        double[] eq = readEquation();
         printEquationResult(solveEquation(eq[0], eq[1], eq[2]));
     }
 
@@ -23,7 +23,7 @@ public class Main {
     }
 
     //Returns the result in a double array: [x1, x2, discriminant]
-    public static double[] solveEquation(int a, int b, int c){
+    public static double[] solveEquation(double a, double b, double c){
         double discriminant = Math.pow(b, 2) - 4 * a * c;
         double x1 = Double.NaN;
         double x2 = Double.NaN;
@@ -34,16 +34,16 @@ public class Main {
         return new double[]{x1, x2, discriminant};
     }
 
-    public static int[] readEquation(){
-        int[] polynomial = null;
+    public static double[] readEquation(){
+        double[] polynomial = null;
         while (true){
             System.out.println("Enter the numbers of the equation (a<x^2> b<x> c)");
             String input = scanner.nextLine();
             try {
                 String[] segments = input.split(" ");
-                polynomial = new int[segments.length];
+                polynomial = new double[segments.length];
                 for (int i = 0; i < segments.length; i++){
-                    polynomial[i] = Integer.parseInt(segments[i]);
+                    polynomial[i] = Double.parseDouble(segments[i]);
                 }
                 if (polynomial.length == 3){
                     return polynomial;

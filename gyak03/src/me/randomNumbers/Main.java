@@ -1,5 +1,8 @@
 package me.randomNumbers;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 class RandomNumbersMain {
     public static void main(String[] args){
         int[] array = new int[10];
@@ -8,12 +11,21 @@ class RandomNumbersMain {
         }
 
         printIntArray(array);
-        System.out.println(maxOdd(array));
+        System.out.println(maxEven(array));
         System.out.println(countSquareNumbers(array));
-        System.out.println(getSpecialAverage(array));
+        System.out.println(getGeometricAverage(array));
+
+        System.out.println(Arrays.toString(array));
+        Arrays.sort(array);
+        System.out.println(Arrays.toString(array));
+        int index = Arrays.binarySearch(array, 10);
+        System.out.println("Index of 10 in array: " + index);
+
+        int[] randoArray = {1, 2, 3, 4, 5, 6, 7, 8};
+        System.out.println(Arrays.equals(randoArray, array));
     }
 
-    public static double getSpecialAverage(int[] array){
+    public static double getGeometricAverage(int[] array){
         long multiplicationResult = 1;
         for (int n : array){
             multiplicationResult *= n;
@@ -24,21 +36,21 @@ class RandomNumbersMain {
     public static int countSquareNumbers(int[] array){
         int sum = 0;
         for (int n : array) {
-            if (Math.sqrt(n) % 1 == 0) {
+            if (Math.sqrt(n) == (int)Math.sqrt(n) ) {
                 sum++;
             }
         }
         return sum;
     }
 
-    public static int maxOdd(int[] array){
-        int maxOdd = 0;
+    public static int maxEven(int[] array){
+        int maxEven = 0;
         for (int i = 0; i < array.length; i++){
-            if (array[i] % 2 == 0 && array[i] > maxOdd){
-                maxOdd = array[i];
+            if (array[i] % 2 == 0 && array[i] > maxEven){
+                maxEven = array[i];
             }
         }
-        return maxOdd;
+        return maxEven;
     }
 
     public static int getRandomNumber(int min, int max){
