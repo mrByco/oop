@@ -1,4 +1,4 @@
-package me.gyak;
+package myPackage.first;
 
 public class Main {
 
