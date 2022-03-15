@@ -3,6 +3,8 @@ package myPackage.first;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import me.gyak.Employee;
+
 public class Main {
 
     public static Scanner scanner = new Scanner(System.in);
@@ -24,6 +26,12 @@ public class Main {
 
         printEmployeesWhoRetiresIn(employees, 5);
         printEmployeesWhoRetiresAfterAverage(employees);
+        
+        Arrays.sort(employees, (a, b) -> Integer.compare(a.getYearsUntilRetire(), b.getYearsUntilRetire()));
+        printEmployees(employees);
+        
+        Arrays.sort(employees, (a, b) -> Integer.compare(b.getYearsUntilRetire(), a.getYearsUntilRetire()));
+        printEmployees(employees);
     }
 
     private static void printEmployeesWhoRetiresAfterAverage(Employee[] employees) {
@@ -44,6 +52,7 @@ public class Main {
             }
         }
     }
+    
 
     private static void printEmployees(Employee[] employees) {
         for (int i = 0; i < employees.length; i++) {

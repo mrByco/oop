@@ -1,4 +1,5 @@
 package myPackage.second;
+
 import myPackage.first.Number;
 
 public class Main {
