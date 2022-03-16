@@ -16,14 +16,6 @@ public class Main {
         }
 
 
-        /* Book[] books = new Book[]{
-                new Book("asd", "1", 34),
-                new Book("gg", "1", 12),
-                new Book("wp", "13", 34),
-                new Book("asd", "3", 24),
-                new Book("dfg", "3", 677),
-        }; */
-
         System.out.println("Longest book: " + getLongestBook(books).getDescription());
         System.out.println("Longest even paged: " + books[getLongestEvenPagedBookIndex(books)].getDescription());
         printAuthorBookCount(books);

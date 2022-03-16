@@ -1,8 +1,11 @@
 package me.gyak;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
 public class Employee {
     String name;
-    int birthYear;
+    LocalDate birthday;
     int salary;
 
     static final int retireAge = 65;
@@ -26,20 +29,20 @@ public class Employee {
     	};
     }
     
-    public Employee(String name, int year, int month, int day, int salary){
+    public Employee(String name, LocalDate birthday, int salary){
         this.name = name;
-        this.birthYear = birthYear;
+        this.birthday = birthday;
         this.salary = salary;
     }
     
-    
-
-    Employee(String name, int year, int month, int day){
-
+    public Employee(String name, int year, int month, int day){
+    	this.name = name;
+    	this.birthday = LocalDate.of(year, month, day);
+    	this.salary = 10000*(LocalDate.now().getYear() - birthday.getYear());
     }
 
-    Employee(String name, int year, String month, int day){
-    	//int monthNumber = Arrays.
+    public Employee(String name, int year, String month, int day){
+    	this(name, year, monthNameToNumber(month), day);
     }
     
     public static int monthNameToNumber(String monthName) {
@@ -48,27 +51,27 @@ public class Employee {
     			return i;
     		}
     	}
-    	return 0;
+    	return 1;
     }
     
-    public static monthNumberToString(int index) {
+    public static String monthNumberToString(int index) {
     	return monthNames[index];
     }
 
     public static Employee getFirstRetiree(Employee a, Employee b){
         return a.getYearsUntilRetire() > b.getYearsUntilRetire() ? a : b;
     }
-
-    public static void setRetireAge(int age){
-        retireAge = age;
+    
+    public int getAge() {
+    	return birthday.until(LocalDate.now()).getYears();
     }
 
     public int getYearsUntilRetire(){
-        return retireAge - age;
+        return retireAge - getAge();
     }
 
     @Override
     public String toString(){
-        return name + ": " + age + " years old, " + salary + "Ft, retires in " + getYearsUntilRetire() + "years.";
+        return name + ": " + getAge() + " years old, " + salary + "Ft, retires in " + getYearsUntilRetire() + "years.";
     }
 }

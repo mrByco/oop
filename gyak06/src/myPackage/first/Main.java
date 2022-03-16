@@ -1,5 +1,6 @@
 package myPackage.first;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -12,17 +13,14 @@ public class Main {
     public static void main(String[] args) {
         int n = 3;
         Employee[] employees = new Employee[]{
-                new Employee("Torday Jozsef", 25, 2500),
-                new Employee("Kecskes Judit", 35, 4000),
-                new Employee("Lakatos Dani", 28, 3500),
-                new Employee("Lakatos Erzsike", 53, 800),
+                new Employee("Torday Jozsef", 2001, 4, 1),
+                new Employee("Kecskes Judit", 1996, 9, 21),
+                new Employee("Lakatos Dani", 1942, 5, 2),
+                new Employee("Lakatos Erzsike", 1993, 1, 19),
         };
 
         printEmployees(employees);
 
-        Employee.setRetireAge(55);
-
-        printEmployees(employees);
 
         printEmployeesWhoRetiresIn(employees, 5);
         printEmployeesWhoRetiresAfterAverage(employees);
@@ -73,8 +71,8 @@ public class Main {
     public static Employee readEmployee() {
         String name = readString("Give a name to your creation: ");
         int age = readInt("How old is he/she/it?");
-        int salary = readInt("How much does he/she/it cost?");
-        return new Employee(name, age, salary);
+        LocalDate birth = LocalDate.now().minusYears(-age);
+        return new Employee(name, birth.getYear(), birth.getMonthValue(), birth.getDayOfMonth());
     }
 
     public static int readInt(String prompt) {
