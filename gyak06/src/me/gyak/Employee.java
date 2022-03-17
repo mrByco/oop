@@ -14,16 +14,16 @@ public class Employee {
     static {
     	monthNames = new String[] {
     			" ",
-    			"január",
-    			"február",
-    			"március",
-    			"április",
-    			"május",
-    			"június",
-    			"július",
+    			"januÃ¡r",
+    			"februÃ¡r",
+    			"mÃ¡rcius",
+    			"Ã¡prilis",
+    			"mÃ¡jus",
+    			"jÃºnius",
+    			"jÃºlius",
     			"augusztus",
     			"szeptember",
-    			"október",
+    			"oktÃ³ber",
     			"november",
     			"december"
     	};
@@ -72,6 +72,6 @@ public class Employee {
 
     @Override
     public String toString(){
-        return name + ": " + getAge() + " years old, " + salary + "Ft, retires in " + getYearsUntilRetire() + "years.";
+        return name + ", " + birthday.getYear() + ". " + birthday.getMonthValue() + ". " + birthday.getDayOfMonth() + ".";
     }
 }
