@@ -1,4 +1,4 @@
-package bookpackage;
+package homework;
 
 import java.time.LocalDate;
 
@@ -21,8 +21,21 @@ public class Book {
     Book(String title, String author, int pageCount){
         this(title, author,  2500, pageCount, "Móra");
     }
+    
 
-    public static Book getLongerBook(Book a, Book b){
+    public Book(String author, String title, int price, int pageCount){
+        this(title, author,  Math.max(0, price), Math.max(pageCount, 0), "Móra");
+    }
+
+    public Book(String author, String title) {
+    	this.title = title;
+    	this.author = author;
+    	this.pageCount = 100;
+    	this.publisher = "Mora";
+    	this.price = 2500;
+	}
+
+	public static Book getLongerBook(Book a, Book b){
         return a.pageCount > b.pageCount ? a : b;
     }
 
@@ -46,7 +59,7 @@ public class Book {
         this.author = author;
     }
 
-    public int getReleaseDate() {
+    public int getYearOfPublication() {
         return releaseDate;
     }
 
@@ -55,11 +68,12 @@ public class Book {
     }
 
     public void setPrice(int price) {
-        this.price = price;
+        this.price = Math.max(1000, price);
     }
 
-    public void changePriceByPercent(int percent){
-        price += (price * percent / 100);
+    public void increasePrice(int percent){
+    	if (percent < 0) return;
+        price += Math.round(price * (float)percent / 100.0);
     }
 
     @Override
@@ -68,7 +82,7 @@ public class Book {
     }
 
     public String getDescription(){
-        return "Title: " + this.title + " Author: " + title + " Price: " + this.price + " Release date: " + this.releaseDate + " Page count: " + pageCount + " Publisher: " + publisher;
+        return "Title: " + this.title + " Author: " + author + " Price: " + this.price + " Release date: " + this.releaseDate + " Page count: " + pageCount + " Publisher: " + publisher;
     }
 
     public int getPageCount() {
@@ -85,5 +99,46 @@ public class Book {
 
     public void setPublisher(String publisher) {
         this.publisher = publisher;
+    }
+
+	public Integer getPages() {
+		return this.getPageCount();
+	}
+
+	public void setPages(int setPages) {
+		if (setPages < 0) return;
+		this.setPageCount(setPages);
+		
+	}
+
+	public static Book getLonger(Book book, Book book2) {
+		return book.getPageCount() >= book2.getPageCount() ? book : book2;
+	}
+
+	public boolean hasEvenPages() {
+		return this.getPageCount() % 2 == 0;
+	}
+
+	public static Book getLongestBook(Book[] books) {
+		Book longestBook = books[0];
+		for (Book book : books) {
+			if (book.getPageCount() > longestBook.getPageCount()) {
+				longestBook = book;
+			}
+		}
+		return longestBook;
+	}
+	
+
+
+    public static Book getLongestEvenPagesBook(Book[] books) {
+        Book longest = null;
+        for (int i = 0; i < books.length; i++) {
+            if (books[i].getPageCount() % 2 == 0 &&
+                    (longest == null || books[i].getPageCount() > longest.getPageCount())) {
+                longest = books[i];
+            }
+        }
+        return longest;
     }
 }
