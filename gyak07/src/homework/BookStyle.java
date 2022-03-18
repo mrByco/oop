@@ -34,7 +34,21 @@ public class BookStyle extends Book {
     }
 
     public static BookStyle[] getAllBookWithStyle(String styleName, BookStyle[] books){
-        return (BookStyle[]) Arrays.stream(books).filter((book -> book.style.equalsIgnoreCase(styleName))).toArray();
+        int count = 0;
+        for (BookStyle bookStyle : books){
+            if (bookStyle.style.equalsIgnoreCase(styleName)){
+                count++;
+            }
+        }
+        BookStyle[] filtered = new BookStyle[count];
+        count = 0;
+        for (BookStyle bookStyle : books){
+            if (bookStyle.style.equalsIgnoreCase(styleName)){
+                filtered[count] = bookStyle;
+                count++;
+            }
+        }
+        return filtered;
     }
 
 
