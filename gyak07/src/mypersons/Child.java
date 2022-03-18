@@ -8,10 +8,9 @@ public class Child extends Person {
         this.school = school;
     }
 
+
     @Override
     public String toString() {
-        return "Child{" +
-                "school='" + school + '\'' +
-                '}';
+        return super.getName() + ", " + this.getAge() + ", " + this.school;
     }
 }
