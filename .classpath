@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="gyak03/src"/>
+	<classpathentry kind="src" path="gyak04/src"/>
+	<classpathentry kind="src" path="gyak05/src"/>
+	<classpathentry kind="src" path="gyak06/src"/>
+	<classpathentry kind="output" path="out/production/oop"/>
+</classpath>
