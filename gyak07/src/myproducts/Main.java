@@ -15,6 +15,13 @@ public class Main {
         Bread bread2 = new Bread("Ocso-Jo", 5, 14, 1);
 
         print("Compare bread2 to product2: " + Bread.compareBreads(bread2, (Bread) product2));
+
+        SlaveMarket buzater = new SlaveMarket(400, "BTC");
+        SlaveMarket vasgyar = new SlaveMarket(599, "Etherum");
+        SlaveMarket Blaha = new SlaveMarket(400, "HUF");
+
+        print(buzater.BuyMeASlave().toString());
+        print(vasgyar.BuyMeASlave().toString());
     }
 
     public static <T> void print(T obj){

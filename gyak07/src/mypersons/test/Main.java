@@ -22,10 +22,10 @@ public class Main {
         minSelectionSort(people, (a, b) -> Integer.compare(a.getAge(), b.getAge()));
 
         System.out.println(Arrays.toString(people));
-        /*Person person1 = readPerson();
+        Person person1 = readPerson();
         Person person2 = readPerson();
         System.out.println("1 child: " + (person1 instanceof Child));
-        System.out.println("2 child: " + (person2 instanceof Child));*/
+        System.out.println("2 child: " + (person2 instanceof Child));
 
     }
 
