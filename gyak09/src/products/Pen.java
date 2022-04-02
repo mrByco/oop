@@ -2,25 +2,24 @@ package products;
 
 import java.awt.Color;
 import coloring.Colorable;
+import coloring.CustomColor;
 
 public class Pen extends Product implements Colorable{
 	
-	Color penColor;
+	CustomColor penColor;
 	String brandName;
 	
-	public Pen(String brandName, Color penColor, int price)
-	{
+	public Pen(String brandName, Color penColor, int price) {
 		super("pen", price, 27);
-		this.brandName=brandName;
-		this.penColor=penColor;
+		this.brandName = brandName;
+		this.penColor = new CustomColor(penColor);
 	}
 	
 	@Override
-	public String toString()
-	{
-		return "Product name: "+penColor+" "+getName()+"\nBrand: "+brandName+"\nPrice: "+grossPrice()+"\nVat: "+getVat()+"\n";
+	public String toString() {
+		return "Pen [brand = " + brandName + ", color = " + penColor + ", price = " + this.grossPrice() + "]";
 	}
-	
+
 	public Color getColor()
 	{
 		return penColor;
@@ -28,7 +27,7 @@ public class Pen extends Product implements Colorable{
 	
 	public void setColor(Color givenColor)
 	{
-		this.penColor=givenColor;
+		this.penColor = new CustomColor(penColor);;
 	}
 
 }

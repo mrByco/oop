@@ -1,10 +1,11 @@
 package products;
 
-public class Product {
+public class Product implements SalesProduct {
 
 	private String name;
 	private int nettoPrice;
 	private int vat;
+	private String currency;
 	
 	public Product(String name, int nettoPrice, int vat) {
 		this.name = name;
@@ -30,20 +31,20 @@ public class Product {
 	
 	public void increasePrice(int percent)
 	{
-		nettoPrice+=Math.round((float)nettoPrice*(percent/100));
+		nettoPrice += Math.round(nettoPrice*((float)percent/100));
 	}
 	
 	public int grossPrice()
 	{
-		return nettoPrice+=Math.round((float)nettoPrice*(vat/100));
+		return nettoPrice + Math.round(nettoPrice * ((float)vat / 100));
 	}
 	
 	@Override
 	public String toString()
 	{
-		return "Name: "+name+"\nNetto price: "+nettoPrice+"\nVat: "+vat+"\n";
+		return "Name: "+name+"\nNetto price: "+nettoPrice+"\nVat: "+vat+"\n" + "Currency: " + this.currency +"\n";
 	}
-
+	
 	public String getName() {
 		return name;
 	}
@@ -52,11 +53,11 @@ public class Product {
 		this.name = name;
 	}
 
-	public int getNettoPrice() {
+	public int getPrice() {
 		return nettoPrice;
 	}
 
-	public void setNettoPrice(int nettoPrice) {
+	public void setPrice(int nettoPrice) {
 		this.nettoPrice = nettoPrice;
 	}
 
@@ -66,6 +67,14 @@ public class Product {
 
 	public void setVat(int vat) {
 		this.vat = vat;
+	}
+
+	public String getCurrency() {
+		return currency;
+	}
+
+	public void setCurrency(String currency) {
+		this.currency = currency;
 	}
 	
 }

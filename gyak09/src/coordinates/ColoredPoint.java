@@ -6,7 +6,7 @@ import coloring.Colorable;
 
 public class ColoredPoint extends Point implements Colorable{
 	
-	Color newColor;
+	private Color newColor;
 	
 	public ColoredPoint()
 	{
@@ -30,7 +30,7 @@ public class ColoredPoint extends Point implements Colorable{
 	@Override
 	public String toString()
 	{
-		return "x: " + x + ", y: " + y + ", color: " + newColor + "\n";
+		return "x: " + this.getX() + ", y: " + this.getY() + ", color: " + newColor + "\n";
 	}
 	
 	public Color getColor()

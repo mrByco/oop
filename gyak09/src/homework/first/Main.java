@@ -1,4 +1,4 @@
-package homework;
+package homework.first;
 
 import java.awt.Color;
 import coloring.Colorable;
