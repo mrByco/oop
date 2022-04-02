@@ -8,6 +8,16 @@ public class Main {
     public static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args){
+
+        try {
+            Integer.parseInt("aad");
+
+            Person p = null;
+            System.out.println(p.getName());
+        } catch (NumberFormatException exception){
+            exception.printStackTrace();
+        }
+
         Person person = readPerson();
         System.out.println(person.getDescription());
     }
