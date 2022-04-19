@@ -1,6 +1,7 @@
 package homework;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class Main {
 	public static void main(String[] args) {
@@ -10,8 +11,34 @@ public class Main {
 		for (int i = 0; i < employees.length; i++) {
 			employees[i] = GenerateEmployee();
 		}
-		
+
 		System.out.println(Arrays.toString(employees));
+
+		CountEmployeesByPosition(employees);
+		
+		Arrays.sort(employees, (a, b) -> Integer.compare(((UniEmployee)a).getAge(), ((UniEmployee)b).getAge()));
+		System.out.println(Arrays.toString(employees));
+		
+	}
+	
+	public static void CountEmployeesByPosition(UniEmployee[] employees) {
+		HashMap<Position, Integer> positions = new HashMap<Position, Integer>();
+		for (UniEmployee employee: employees) {
+			if (!positions.containsKey(employee.getPosition())) {
+				positions.put(employee.getPosition(), 1);
+			}
+			else {
+				positions.put(employee.getPosition(),positions.get(employee.getPosition()) + 1);
+			}
+		}
+		
+		for (Position position: Position.values()) {
+			if (positions.get(position) == null) {
+				System.out.println(position.toString() + ": 0");
+			}else {
+				System.out.println(position.toString() + ": " + positions.get(position).toString());
+			}
+		}
 	}
 	
 	public static UniEmployee GenerateEmployee() {

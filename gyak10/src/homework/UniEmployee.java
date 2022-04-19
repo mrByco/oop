@@ -6,6 +6,14 @@ public class UniEmployee extends Employee {
 	private static int basesalary = 500000;
 	private Position position;
 
+	public Position getPosition() {
+		return position;
+	}
+
+	public void setPosition(Position position) {
+		this.position = position;
+	}
+
 	public UniEmployee(String name, int age, String workplace, Position position) {
 		super(name, age, workplace, 0);
 		this.position = position;
