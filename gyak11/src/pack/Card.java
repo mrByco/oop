@@ -2,20 +2,36 @@ package pack;
 
 import java.time.LocalDate;
 
-public class Card implements Comparable {
+public class Card implements Comparable, Chargeable {
 	private String owner;
 	private LocalDate validity;
 	private CardIssuer issuer;
 	private int balance;
-	
+	private int usageFee;
+
+	public int getUsageFee() {
+		return usageFee;
+	}
+
 	public Card(String owner, LocalDate validity, CardIssuer issuer, int balance) {
 		super();
 		this.owner = owner;
 		this.validity = validity;
 		this.issuer = issuer;
 		this.balance = balance;
+
+		switch (issuer) {
+		case CIB:
+			usageFee = 70;
+		case ERSTE:
+			usageFee = 60;
+		case KANDH:
+			usageFee = 50;
+		case OTP:
+			usageFee = 30;
+		}
 	}
-	
+
 	public boolean Withdraw(int ammount) {
 		if (ammount <= balance && LocalDate.now().isBefore(validity)) {
 			balance -= ammount;
@@ -27,7 +43,7 @@ public class Card implements Comparable {
 	public String getOwner() {
 		return owner;
 	}
-	
+
 	public void setOwner(String owner) {
 		this.owner = owner;
 	}
@@ -66,13 +82,16 @@ public class Card implements Comparable {
 		Card card = (Card) o;
 		if (card.validity.isBefore(validity)) {
 			return 1;
-		}
-		else if (card.validity.isAfter(validity)) {
+		} else if (card.validity.isAfter(validity)) {
 			return -1;
 		}
-			return 0;
+		return 0;
 	}
-	
-	
-	
+
+	@Override
+	public boolean Charge() throws NotEnoughBalanceForChargeFeeException {
+		return this.Withdraw(usageFee);
+
+	}
+
 }

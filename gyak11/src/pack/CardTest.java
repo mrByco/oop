@@ -41,6 +41,15 @@ Owner=Kovács Edit, Valid=2021-01-31, Bank=CIB, Balance=250000
 		Arrays.sort(cards);
 
 		PrintCards(cards);
+
+		for (int i = 0; i < cards.length; i++) {
+			try {
+				cards[i].Charge();
+			} catch (NotEnoughBalanceForChargeFeeException e) {
+				System.out.println("Could not charge card with usage fee");
+				e.printStackTrace();
+			}
+		}
 		
 		
 

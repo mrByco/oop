@@ -27,6 +27,22 @@ public class CreditCard extends Card {
 		}
 		return false;
 	}
+	
+	@Override
+	public boolean Charge() {
+		int additionalFee = 0;
+		switch (super.getIssuer()) {
+		case CIB:
+			additionalFee = 30;
+		case ERSTE:
+			additionalFee = 20;
+		case KANDH:
+			additionalFee = 15;
+		case OTP:
+			additionalFee = 10;
+		}
+		return this.Withdraw(additionalFee + super.getBalance());
+	}
 
 	@Override
 	public String toString() {
