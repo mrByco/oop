@@ -46,28 +46,27 @@ public class Main {
     }
 
     public static Person readPerson(){
-        Person person = null;
-        while (person == null){
+        while (true){
             System.out.println("Adja meg egy szemely adatait (nev, kor, <munkahely/iskola>): ");
             try {
                 String line = scanner.nextLine();
                 String[] segments = line.split(", ");
                 int age = Integer.parseInt(segments[1]);
                 if (age < 18){
-                    person = new Child(segments[0], age, segments[2]);
+                    return new Child(segments[0], age, segments[2]);
                     continue;
                 }
 
                 person = segments.length > 2 ?
                         new Employee(segments[0], age, segments[2], readInt("Adja meg a fizeteset")) :
                         new Adult(segments[0], age, "");
+                return person;
 
             }
             catch (Exception e){
                 System.out.println("Nope");
             }
         }
-        return person;
     }
 
     public static int readInt(String prompt){
